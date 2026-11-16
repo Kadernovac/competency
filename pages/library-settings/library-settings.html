@@ -17,9 +17,9 @@
             <span class="brand-text">xle <strong>KORP</strong></span>
           </div>
         </div>
-        <nav class="sidebar__nav">
-          <button class="nav-item nav-item--active" type="button">
-            <span class="nav-item__icon">◫</span>
+        <nav class="sidebar__nav" aria-label="Main navigation">
+          <button class="nav-item nav-item--active" type="button" aria-current="page">
+            <span class="nav-item__icon" aria-hidden="true">◫</span>
             <span>Competency<br />Management</span>
           </button>
         </nav>
@@ -29,34 +29,34 @@
       <main class="main-panel">
         <header class="topbar">
           <div class="topbar__search-wrap">
-            <span class="search-icon">⌕</span>
-            <input type="text" placeholder="Search competencies or skills..." aria-label="Search" />
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input type="search" placeholder="Search competencies or skills..." aria-label="Search competencies or skills" />
           </div>
           <div class="topbar__actions">
-            <button class="btn btn--ghost" type="button">Reset Demo Data</button>
+            <button class="btn btn--ghost" id="reset-demo" type="button">Reset Demo Data</button>
             <div class="user-menu">
-              <button class="btn btn--ghost btn--small user-menu__trigger" type="button">Administrator ▾</button>
-              <div class="user-menu__list">
-                <button type="button">Administrator</button>
-                <button type="button">Learner Preview</button>
-                <button type="button">Manager Preview</button>
+              <button class="btn btn--ghost btn--small user-menu__trigger" type="button" aria-expanded="false" aria-haspopup="true">Administrator ▾</button>
+              <div class="user-menu__list" role="menu">
+                <button type="button" role="menuitem">Administrator</button>
+                <button type="button" role="menuitem">Learner Preview</button>
+                <button type="button" role="menuitem">Manager Preview</button>
               </div>
             </div>
             <button class="topbar__bell" type="button" aria-label="Notifications">🔔</button>
             <div class="profile-box">
-              <div class="profile-box__avatar">J</div>
+              <div class="profile-box__avatar" aria-hidden="true">J</div>
               <div class="profile-box__meta">
                 <strong>John Doe</strong>
-                <span>Workspce Administrator</span>
+                <span>Workspace Administrator</span>
               </div>
-              <span class="caret">▾</span>
+              <span class="caret" aria-hidden="true">▾</span>
             </div>
           </div>
         </header>
 
         <section class="page-header">
           <div class="page-header__left">
-            <div class="page-header__icon">◫</div>
+            <div class="page-header__icon" aria-hidden="true">◫</div>
             <div>
               <h1>Competency Management</h1>
               <p>Build capabilities. Close skill gaps. Help your people grow.</p>
@@ -65,57 +65,76 @@
         </section>
 
         <nav class="tabs" aria-label="Competency subpages">
-          <a href="../library-settings/library-settings.html" class="tab tab--active"><span class="tab__icon">◌</span> Library Settings</a>
-          <a href="../competency-framework/competency-framework.html" class="tab"><span class="tab__icon">▣</span> Competency Framework</a>
-          <a href="../role-mapping/role-mapping.html" class="tab"><span class="tab__icon">▣</span> Role Mapping</a>
-          <a href="../user-level-update/user-level-update.html" class="tab"><span class="tab__icon">▤</span> User Level Update</a>
-          <a href="../role-progression/role-progression.html" class="tab"><span class="tab__icon">▨</span> Role Progression</a>
-          <a href="../reports/reports.html" class="tab"><span class="tab__icon">≡</span> Reports</a>
-          <a href="../proof-submissions/proof-submissions.html" class="tab"><span class="tab__icon">☑</span> Proof Submissions</a>
+          <a href="../library-settings/library-settings.html" class="tab tab--active" aria-current="page"><span class="tab__icon" aria-hidden="true">◌</span> Library Settings</a>
+          <a href="../competency-framework/competency-framework.html" class="tab"><span class="tab__icon" aria-hidden="true">▣</span> Competency Framework</a>
+          <a href="../role-mapping/role-mapping.html" class="tab"><span class="tab__icon" aria-hidden="true">▣</span> Role Mapping</a>
+          <a href="../user-level-update/user-level-update.html" class="tab"><span class="tab__icon" aria-hidden="true">▤</span> User Level Update</a>
+          <a href="../role-progression/role-progression.html" class="tab"><span class="tab__icon" aria-hidden="true">▨</span> Role Progression</a>
+          <a href="../reports/reports.html" class="tab"><span class="tab__icon" aria-hidden="true">≡</span> Reports</a>
+          <a href="../proof-submissions/proof-submissions.html" class="tab"><span class="tab__icon" aria-hidden="true">☑</span> Proof Submissions</a>
         </nav>
 
-        <section class="panel">
+        <section class="panel" aria-labelledby="library-title">
           <div class="panel__header">
             <div>
-              <h2>Library Settings</h2>
+              <h2 id="library-title">Library Settings</h2>
               <p>Manage proficiency levels and skills used across your competency framework.</p>
             </div>
             <div class="panel__header-actions">
-              <div class="filter-badge">Proficiency Levels <span>4</span></div>
+              <div class="filter-badge">Proficiency Levels <span id="level-count">4</span></div>
               <div class="filter-badge filter-badge--secondary">Skill Master <span>3</span></div>
-              <button class="btn btn--primary" type="button">+ Add Level</button>
+              <button class="btn btn--primary" id="add-level" type="button">+ Add Level</button>
             </div>
           </div>
 
           <div class="toolbar">
-            <div class="toolbar__search">
-              <span>⌕</span>
-              <input type="text" placeholder="Search levels..." />
-            </div>
-            <button class="btn btn--filter" type="button">All Statuses ▾</button>
+            <label class="toolbar__search">
+              <span aria-hidden="true">⌕</span>
+              <input id="level-search" type="search" placeholder="Search levels..." aria-label="Search proficiency levels" />
+            </label>
+            <label class="visually-hidden" for="status-filter">Filter by status</label>
+            <select class="btn btn--filter" id="status-filter" aria-label="Filter by status">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
           </div>
 
           <div class="table-wrap">
             <table>
               <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Status</th>
-                  <th>Order</th>
-                  <th>Actions</th>
-                </tr>
+                <tr><th scope="col">Name</th><th scope="col">Status</th><th scope="col">Order</th><th scope="col">Actions</th></tr>
               </thead>
-              <tbody>
-                <tr> <td><div class="level-name"><strong>Beginner</strong><small>Understands the fundamentals</small></div></td><td><span class="status status--active">Active</span></td><td>1</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
-                <tr> <td><div class="level-name"><strong>Intermediate</strong><small>Applies the skill with guidance</small></div></td><td><span class="status status--active">Active</span></td><td>2</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
-                <tr> <td><div class="level-name"><strong>Advanced</strong><small>Works independently</small></div></td><td><span class="status status--active">Active</span></td><td>3</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
-                <tr> <td><div class="level-name"><strong>Expert</strong><small>Coaches others and solves complex problems</small></div></td><td><span class="status status--active">Active</span></td><td>4</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
-              </tbody>
+              <tbody id="levels-table-body"></tbody>
             </table>
+            <p class="empty-state" id="empty-state" hidden>No levels match your search. Try another term or add a level.</p>
           </div>
         </section>
       </main>
     </div>
+
+    <dialog class="level-dialog" id="level-dialog" aria-labelledby="dialog-title">
+      <form id="level-form" method="dialog">
+        <div class="dialog__header">
+          <div><p class="dialog__eyebrow">LIBRARY SETTINGS</p><h2 id="dialog-title">Add proficiency level</h2></div>
+          <button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">×</button>
+        </div>
+        <input id="level-id" type="hidden" />
+        <label class="field-label" for="level-name-input">Name <span aria-hidden="true">*</span></label>
+        <input class="form-input" id="level-name-input" name="name" type="text" maxlength="60" required placeholder="e.g. Beginner" />
+        <label class="field-label" for="level-description-input">Description</label>
+        <textarea class="form-input" id="level-description-input" name="description" rows="3" maxlength="180" placeholder="Describe the expected proficiency"></textarea>
+        <div class="form-row">
+          <div><label class="field-label" for="level-order-input">Order</label><input class="form-input" id="level-order-input" name="order" type="number" min="1" step="1" required /></div>
+          <div><label class="field-label" for="level-status-input">Status</label><select class="form-input" id="level-status-input" name="status"><option value="active">Active</option><option value="inactive">Inactive</option></select></div>
+        </div>
+        <div class="dialog__actions">
+          <button class="btn" type="button" data-close-dialog>Cancel</button>
+          <button class="btn btn--primary" id="save-level" type="submit">Save level</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="../../assets/scripts/common.js"></script>
     <script src="library-settings.js"></script>
