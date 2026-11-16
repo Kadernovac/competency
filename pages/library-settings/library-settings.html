@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Competency Management - Library Settings</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/responsive.css" />
+    <link rel="stylesheet" href="library-settings.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar__brand">
+          <div class="brand">
+            <span class="brand-mark">A</span>
+            <span class="brand-text">xle <strong>KORP</strong></span>
+          </div>
+        </div>
+        <nav class="sidebar__nav">
+          <button class="nav-item nav-item--active" type="button">
+            <span class="nav-item__icon">◫</span>
+            <span>Competency<br />Management</span>
+          </button>
+        </nav>
+        <div class="sidebar__footer">Powered by NOVATECH</div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="topbar__search-wrap">
+            <span class="search-icon">⌕</span>
+            <input type="text" placeholder="Search competencies or skills..." aria-label="Search" />
+          </div>
+          <div class="topbar__actions">
+            <button class="btn btn--ghost" type="button">Reset Demo Data</button>
+            <div class="user-menu">
+              <button class="btn btn--ghost btn--small user-menu__trigger" type="button">Administrator ▾</button>
+              <div class="user-menu__list">
+                <button type="button">Administrator</button>
+                <button type="button">Learner Preview</button>
+                <button type="button">Manager Preview</button>
+              </div>
+            </div>
+            <button class="topbar__bell" type="button" aria-label="Notifications">🔔</button>
+            <div class="profile-box">
+              <div class="profile-box__avatar">J</div>
+              <div class="profile-box__meta">
+                <strong>John Doe</strong>
+                <span>Workspce Administrator</span>
+              </div>
+              <span class="caret">▾</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="page-header">
+          <div class="page-header__left">
+            <div class="page-header__icon">◫</div>
+            <div>
+              <h1>Competency Management</h1>
+              <p>Build capabilities. Close skill gaps. Help your people grow.</p>
+            </div>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="Competency subpages">
+          <a href="../library-settings/library-settings.html" class="tab tab--active"><span class="tab__icon">◌</span> Library Settings</a>
+          <a href="../competency-framework/competency-framework.html" class="tab"><span class="tab__icon">▣</span> Competency Framework</a>
+          <a href="../role-mapping/role-mapping.html" class="tab"><span class="tab__icon">▣</span> Role Mapping</a>
+          <a href="../user-level-update/user-level-update.html" class="tab"><span class="tab__icon">▤</span> User Level Update</a>
+          <a href="../role-progression/role-progression.html" class="tab"><span class="tab__icon">▨</span> Role Progression</a>
+          <a href="../reports/reports.html" class="tab"><span class="tab__icon">≡</span> Reports</a>
+          <a href="../proof-submissions/proof-submissions.html" class="tab"><span class="tab__icon">☑</span> Proof Submissions</a>
+        </nav>
+
+        <section class="panel">
+          <div class="panel__header">
+            <div>
+              <h2>Library Settings</h2>
+              <p>Manage proficiency levels and skills used across your competency framework.</p>
+            </div>
+            <div class="panel__header-actions">
+              <div class="filter-badge">Proficiency Levels <span>4</span></div>
+              <div class="filter-badge filter-badge--secondary">Skill Master <span>3</span></div>
+              <button class="btn btn--primary" type="button">+ Add Level</button>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar__search">
+              <span>⌕</span>
+              <input type="text" placeholder="Search levels..." />
+            </div>
+            <button class="btn btn--filter" type="button">All Statuses ▾</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Order</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr> <td><div class="level-name"><strong>Beginner</strong><small>Understands the fundamentals</small></div></td><td><span class="status status--active">Active</span></td><td>1</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
+                <tr> <td><div class="level-name"><strong>Intermediate</strong><small>Applies the skill with guidance</small></div></td><td><span class="status status--active">Active</span></td><td>2</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
+                <tr> <td><div class="level-name"><strong>Advanced</strong><small>Works independently</small></div></td><td><span class="status status--active">Active</span></td><td>3</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
+                <tr> <td><div class="level-name"><strong>Expert</strong><small>Coaches others and solves complex problems</small></div></td><td><span class="status status--active">Active</span></td><td>4</td><td class="actions"><button type="button">✎</button><button type="button">◌</button><button type="button">🗑</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../assets/scripts/common.js"></script>
+    <script src="library-settings.js"></script>
+  </body>
+</html>

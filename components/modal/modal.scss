@@ -1,0 +1,16 @@
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(17, 24, 39, 0.38); display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.modal-backdrop.is-hidden { display: none; }
+.modal {
+  width: min(480px, calc(100% - 32px)); background: #fff; border-radius: 16px; border: 1px solid #dfe7f1; padding: 20px; box-shadow: 0 12px 30px rgba(20, 32, 60, 0.12);
+}
+.modal__header { display: flex; align-items: center; justify-content: space-between; }
+.modal__header h3 { margin: 0; font-size: 1.5rem; }
+.modal__close { border: 0; background: transparent; font-size: 2rem; color: #53617a; }
+.modal__body { display: grid; gap: 16px; margin-top: 18px; }
+.modal__body label { display: grid; gap: 8px; font-weight: 600; }
+.modal__body input {
+  width: 100%; border: 1px solid #dfe7f1; border-radius: 10px; padding: 12px 14px; font-size: 1rem;
+}
+.modal__footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 18px; }
